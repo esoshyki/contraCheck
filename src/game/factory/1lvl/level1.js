@@ -2,16 +2,13 @@ import Farm from './farm/farm';
 import Nature from './nature/nature';
 import StaticItem from '../../entities/Elements/Static';
 import BgItem from '../../entities/Elements/Background';
-import Player from '../../entities/Units/Player/Player';
 import WaterItem from '../../entities/Elements/Water';
 
 const blockSize = Nature.blockSize;
 const waterHeight = Nature.waterHeight;
-const corniceHeight = Nature.corniceHeight;
 const levelWidth = blockSize * 100;
 const levelHeight = blockSize * 30;
 const height = levelHeight;
-const floor = height - blockSize * 5;
 
 
 const backgrounds = [
@@ -109,6 +106,30 @@ const ground = [
 	Nature.statics.ground.down.left(blockSize * 47, height),
 	Nature.statics.ground.down.middle(blockSize * 48, height, blockSize * 32),
 	Nature.statics.ground.down.right(blockSize * 94, height),
+	Nature.statics.ground.inside(blockSize * 94, height - blockSize * 13, blockSize * 1, blockSize * 1),
+	Nature.statics.ground.inside(blockSize * 99, height - blockSize * 13, blockSize * 1, blockSize * 1),
+	Nature.statics.ground.inside(blockSize * 102, height - blockSize * 14, blockSize * 1, blockSize * 1),
+	Nature.statics.ground.inside(blockSize * 107, height - blockSize * 14, blockSize * 1, blockSize * 1),
+	Nature.statics.ground.inside(blockSize * 110, height - blockSize * 15, blockSize * 1, blockSize * 1),
+	Nature.statics.ground.inside(blockSize * 115, height - blockSize * 15, blockSize * 1, blockSize * 1),
+	Nature.statics.ground.inside(blockSize * 118, height - blockSize * 16, blockSize * 1, blockSize * 1),
+	Nature.statics.ground.inside(blockSize * 133, height - blockSize * 16, blockSize * 1, blockSize * 1),
+	Nature.statics.ground.inside(blockSize * 126, height - blockSize * 9, blockSize * 1, blockSize * 1),
+	Nature.statics.ground.inside(blockSize * 139, height - blockSize * 16, blockSize * 2, blockSize * 1),
+
+
+
+
+
+	Nature.statics.ground.corner.right(blockSize * 127, height - blockSize * 10),
+	Nature.statics.ground.corner.right(blockSize * 127, height - blockSize * 10),
+	Nature.statics.ground.corner.right(blockSize * 127, height - blockSize * 10),
+	Nature.statics.ground.down.left(blockSize * 133, height - blockSize * 12, blockSize * 1),
+	Nature.statics.ground.down.left(blockSize * 134, height - blockSize * 9, blockSize * 1),
+	Nature.statics.ground.corner.right(blockSize * 166, height - blockSize * 5, blockSize * 1),
+	//Nature.statics.ground.down.middle(blockSize * 134, height - blockSize * 9, blockSize * 1),
+
+
 
 	Nature.statics.ground.vertical.left(blockSize * 63, height - blockSize * 11, blockSize * 2),
 	Nature.statics.ground.inside(blockSize * 64, height - blockSize * 11, blockSize * 15, blockSize * 3),
@@ -118,6 +139,9 @@ const ground = [
 	Nature.statics.ground.cornice.middle(blockSize * 76, height - blockSize * 15, blockSize * 2),
 
 	Nature.statics.ground.upper.left(blockSize * 63, height - blockSize * 12),
+	Nature.statics.ground.corner.right(blockSize * 63, height - blockSize * 9),
+	Nature.statics.ground.corner.right(blockSize * 77, height - blockSize * 12),
+
 	Nature.statics.ground.upper.middle(blockSize * 64, height - blockSize * 12, blockSize * 12),
 	Nature.statics.ground.vertical.left(blockSize * 77, height - blockSize * 20, blockSize * 8),
 	Nature.statics.ground.inside(blockSize * 78, height - blockSize * 20, blockSize * 1, blockSize * 9),
@@ -154,7 +178,7 @@ const ground = [
 	Nature.statics.ground.cornice.middle(blockSize * 69, height - blockSize * 18, blockSize * 2),
 
 	Nature.statics.ground.down.middle(blockSize * 69, height - blockSize * 15, blockSize),
-	//Nature.statics.ground.inside(blockSize * 69, height - blockSize * 27, blockSize * 1, blockSize * 13),
+	Nature.statics.ground.inside(blockSize * 69, height - blockSize * 27, blockSize * 1, blockSize * 12),
 
 	Nature.statics.ground.upper.left(blockSize * 77, height - blockSize * 21),
 	Nature.statics.ground.upper.middle(blockSize * 78, height - blockSize * 21, blockSize * 1),
@@ -168,8 +192,9 @@ const ground = [
 	Nature.statics.ground.upper.left(blockSize * 59, height - blockSize * 28),
 	Nature.statics.ground.upper.middle(blockSize * 60, height - blockSize * 28, blockSize * 110),
 
-	Nature.statics.ground.vertical.left(blockSize * 89, height - blockSize * 25, blockSize * 13),
+	Nature.statics.ground.vertical.left(blockSize * 89, height - blockSize * 25, blockSize * 14),
 	Nature.statics.ground.inside(blockSize * 90, height - blockSize * 27, blockSize * 80, blockSize * 11),
+	Nature.statics.ground.inside(blockSize * 89, height - blockSize * 26, blockSize * 1, blockSize * 1),
 
 	Nature.statics.ground.inside(blockSize * 79, height - blockSize * 3, blockSize * 1, blockSize * 3),
 	Nature.statics.ground.inside(blockSize * 86, height - blockSize * 5, blockSize * 8, blockSize * 5),
@@ -206,7 +231,8 @@ const ground = [
 	Nature.statics.ground.cornice.middle(blockSize * 116, height - blockSize * 10, blockSize * 2),
 	Nature.statics.ground.cornice.right(blockSize * 118, height - blockSize * 10),
 
-	Nature.statics.ground.down.middle(blockSize * 89, height - blockSize * 11, blockSize * 5),
+	Nature.statics.ground.down.left(blockSize * 89, height - blockSize * 11),
+	Nature.statics.ground.down.middle(blockSize * 90, height - blockSize * 11, blockSize * 5),
 	Nature.statics.ground.down.right(blockSize * 94, height - blockSize * 11),
 
 	Nature.statics.ground.down.left(blockSize * 99, height - blockSize * 12),
@@ -270,8 +296,8 @@ const ground = [
 	Nature.statics.ground.down.left(blockSize * 139, height - blockSize * 8),
 	Nature.statics.ground.down.right(blockSize * 140, height - blockSize * 8),
 
-	Nature.statics.ground.cornice.left(blockSize * 130, height - blockSize * 6),
-	Nature.statics.ground.cornice.middle(blockSize * 131, height - blockSize * 6, blockSize * 8),
+	Nature.statics.ground.cornice.left(blockSize * 132, height - blockSize * 6),
+	Nature.statics.ground.cornice.middle(blockSize * 133, height - blockSize * 6, blockSize * 5),
 	Nature.statics.ground.cornice.right(blockSize * 138, height - blockSize * 6),
 	Nature.statics.ground.upper.left(blockSize * 136, height - blockSize * 7),
 	Nature.statics.ground.upper.middle(blockSize * 137, height - blockSize * 7, blockSize * 1),
@@ -492,6 +518,8 @@ const setup = factory => {
 	}
 };
 
-export default {
+const level1 = {
 	setup: (factory) => setup(factory)
 };
+
+export default level1;
